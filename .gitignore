@@ -1,0 +1,9 @@
+frames/
+video/
+cocodataset/
+*.zip
+*.json
+*.mp4
+*.mov
+__pycache__/
+.DS_Store
