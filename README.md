@@ -1,21 +1,23 @@
-# 🎥 Video-to-Dataset Converter
+# 🎥 VideoToDataset Pipeline
 
-This repository converts a video into a set of image frames and uses a YOLOv11 model to automatically generate pre-annotations for Label Studio.
+A reusable Python pipeline for converting grocery-store videos into labeled datasets for computer vision training.  
+This project supports both **manual annotation** and **semi-automated pre-labeling using YOLOv11** with Label Studio.
 
 ---
 
 ## 🧠 Features
-- Extracts frames from a `.MOV` video file at a configurable interval  
-- Runs object detection using a YOLOv11 model (`yolov11n_best.pt`)  
-- Exports detections into a `pre_annotations.json` file compatible with Label Studio  
-- Enables quick dataset generation for labeling or model fine-tuning
+
+- Extracts frames from a video (`.MOV` or `.MP4`) at a configurable interval  
+- Runs object detection using a pre-trained YOLOv11 model (`yolov11n_best.pt`)  
+- Generates a `pre_annotations.json` file compatible with Label Studio  
+- Allows fast dataset creation and model improvement workflows  
+- Exportable to COCO format for training on future models  
 
 ---
 
 ## 🚀 How to Use
 
-### 1️⃣ Setup
-Clone the repo:
+### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/Perceive-AI/Video-to-Dataset.git
-cd Video-to-Dataset
+git clone https://github.com/RahulBassi/VideoToDataset.git
+cd VideoToDataset
