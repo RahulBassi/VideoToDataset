@@ -6,7 +6,7 @@ from ultralytics import YOLO
 # ---------------------------------------------------
 # STEP 1: Define paths
 # ---------------------------------------------------
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # the folder this script lives in
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Folder where script lives
 
 model_path = os.path.join(BASE_DIR, "yolov11n_best.pt")
 frames_dir = os.path.join(BASE_DIR, "frames")
@@ -33,9 +33,11 @@ for img_name in sorted(os.listdir(frames_dir)):
     results = model(img_path)[0]
 
     # Build Label Studio JSON structure
+    # Use relative path from project root to avoid system-specific issues
+    rel_path = os.path.relpath(img_path, BASE_DIR)
     prediction = {
         "data": {
-            "image": f"/data/local-files/?d={img_path}"  # ✅ absolute path
+            "image": f"/data/local-files/?d={os.path.join(BASE_DIR, rel_path)}"
         },
         "predictions": [
             {
